@@ -7,17 +7,17 @@
  */
 size_t print_list(const list_t *h)
 {
-	const list_t *new;
-	size_t c;
+	size_t nelem;
 
-	c = 0;
-	new = h;
-	while (new != NULL)
+	nelem = 0;
+	while (h != NULL)
 	{
-		printf("[%d] %s\n", new->len, new->str);
-		new = new->next;
-		c++;
+		if (h->str == NULL)
+			printf("[%d] %s\n", 0, "(nil)");
+		else
+			printf("[%d] %s\n", h->len, h->str);
+		h = h->next;
+		nelem++;
 	}
-
-	return (c);
+	return (nelem);
 }
